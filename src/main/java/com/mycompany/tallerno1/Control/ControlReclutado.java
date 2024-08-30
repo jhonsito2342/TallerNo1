@@ -20,8 +20,9 @@ public class ControlReclutado {
     
     }
     
-    public void crearReclutado(Reclutado auxRecl){
-        
+    public void crearReclutado(String codR, String ced, String nom, String ape){
+        Reclutado reclAux=new Reclutado(codR, ced, nom, ape);
+        reclutados.add(reclAux);
     }
     public ArrayList<Reclutado> getReclutados(){
         return this.reclutados;
