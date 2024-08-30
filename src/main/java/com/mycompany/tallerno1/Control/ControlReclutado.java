@@ -14,11 +14,12 @@ import java.util.ArrayList;
  */
 public class ControlReclutado {
 
-    private ArrayList<Reclutado> reclutados = new ArrayList<Reclutado>();
+    private ArrayList<Reclutado> reclutados;
 
     public ControlReclutado() {
-    
+        reclutados = new ArrayList<Reclutado>();
     }
+
     public Reclutado buscarAplazado(String cedAux) {
         for (Reclutado reclutado : reclutados) {
             if (reclutado.getCed().equals(cedAux)) {
@@ -27,11 +28,13 @@ public class ControlReclutado {
         }
         return null;
     }
-    public void crearReclutado(String codR, String ced, String nom, String ape){
-        Reclutado reclAux=new Reclutado(codR, ced, nom, ape);
+
+    public void crearReclutado(String codR, String ced, String nom, String ape) {
+        Reclutado reclAux = new Reclutado(codR, ced, nom, ape);
         reclutados.add(reclAux);
     }
-    public ArrayList<Reclutado> getReclutados(){
+
+    public ArrayList<Reclutado> getReclutados() {
         return this.reclutados;
     }
 }

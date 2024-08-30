@@ -13,5 +13,30 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class ControlReservista {
-    private ArrayList<Reservista> reservistas=new ArrayList<Reservista>();
+    private ArrayList<Reservista> reservistas;
+
+    public ControlReservista() {
+    reservistas=new ArrayList<Reservista>();
+    }
+    public Reservista buscarAplazado(String cedAux) {
+        for (Reservista reservista : reservistas) {
+            if (reservista.getCed().equals(cedAux)) {
+                return reservista;
+            }
+        }
+        return null;
+    }
+
+    public void crearAplazado(String libM, String ced, String nom, String ape) {
+        Reservista reserAux=new Reservista(nom, ced, nom, ape);
+        reservistas.add(reserAux);
+    }
+    
+    public ArrayList<Reservista> getAplazados(){
+        return this.reservistas;
+    }
+
+
+
+
 }

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.mycompany.tallerno1.Modelo.AplazadoTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+com.mycompany.tallerno1.Modelo.AplazadoTest.testGetDateA()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "com.mycompany.tallerno1.Modelo.Aplazado.getDateA()" because "instance" is null
+	at com.mycompany.tallerno1.Modelo.AplazadoTest.testGetDateA(AplazadoTest.java:47)
+
