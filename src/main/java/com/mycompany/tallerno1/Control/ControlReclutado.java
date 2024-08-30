@@ -19,7 +19,14 @@ public class ControlReclutado {
     public ControlReclutado() {
     
     }
-    
+    public Reclutado buscarAplazado(String cedAux) {
+        for (Reclutado reclutado : reclutados) {
+            if (reclutado.getCed().equals(cedAux)) {
+                return reclutado;
+            }
+        }
+        return null;
+    }
     public void crearReclutado(String codR, String ced, String nom, String ape){
         Reclutado reclAux=new Reclutado(codR, ced, nom, ape);
         reclutados.add(reclAux);
