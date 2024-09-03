@@ -6,7 +6,6 @@ package com.mycompany.tallerno1.Control;
 
 import com.mycompany.tallerno1.Modelo.Remiso;
 import com.mycompany.tallerno1.Modelo.Persona;
-import com.mycompany.tallerno1.Modelo.Reclutado;
 import java.util.ArrayList;
 
 /**
@@ -44,7 +43,15 @@ public class ControlRemiso {
         }
         return sb.toString();
     }
-
+    public Persona cambiarRemiso(String cedAux, String codRecAux){
+        Persona personaAux=null;
+        for(Remiso remiso : remisos){
+            if(remiso.getCed().equals(cedAux)){
+                personaAux= remiso;
+            }
+        }
+        return personaAux;
+    }
     /**
      * Crea un nuevo remiso y lo agrega a la lista.
      * 

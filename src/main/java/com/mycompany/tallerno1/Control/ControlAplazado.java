@@ -44,6 +44,16 @@ public class ControlAplazado {
         }
         return sb.toString();
     }
+    public Aplazado cambiarAplazado(String cedAux, String codRecAux){
+        Aplazado aplazadoAux=null;
+        for(Aplazado aplazado : aplazados){
+            if(aplazado.getCed().equals(cedAux)){
+                aplazadoAux= aplazado;
+                aplazadoAux.setDateA(codRecAux);
+            }
+        }
+        return aplazadoAux;
+    }
 
     /**
      * Crea un nuevo aplazado y lo agrega a la lista.

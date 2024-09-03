@@ -34,6 +34,16 @@ public class ControlReclutado {
      * @param cedAux La cédula del reclutado a buscar.
      * @return Una cadena con la información del reclutado encontrado. Si no se encuentra, devuelve una cadena vacía.
      */
+    public Reclutado cambiarReclutado(String cedAux, String libMilAux){
+        Reclutado reclutadoAux=null;
+        for(Reclutado reclutado : reclutados){
+            if(reclutado.getCed().equals(cedAux)){
+                reclutadoAux= reclutado;
+                reclutadoAux.setCodR(libMilAux);
+            }
+        }
+        return reclutadoAux;
+    }
     public String buscarReclutado(String cedAux) {
         StringBuilder sb = new StringBuilder();
         // Recorre la lista de reclutados para encontrar el que coincide con la cédula.

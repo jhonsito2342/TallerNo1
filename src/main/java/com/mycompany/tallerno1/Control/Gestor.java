@@ -68,7 +68,7 @@ public class Gestor implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.jButtonBuscar) {
-
+            
             String cedABuscar = vista.capturarString("Ingrese la cedula a buscar: ");
             if (!vldCed.validarCedula(cedABuscar, cntlApl.getAplazados()) && !vldCed.validarCedula(cedABuscar, cntlRes.getReservistas()) && !vldCed.validarCedula(cedABuscar, cntlRem.getRemisos()) && !vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())) {
                 vista.mostrarMensaje("La cedula no se encuentra registrada");
@@ -94,7 +94,20 @@ public class Gestor implements ActionListener {
             vista.limpiarTextField();
         }
         if(e.getSource()==vista.jButtonCambiarSituacion){
-            
+            String cedABuscar = vista.capturarString("Ingrese la cedula de la persona a cambiar situacion: ");
+            if(vldCed.validarCedula(cedABuscar, cntlRes.getReservistas())){
+                vista.mostrarMensaje("No se puede cambiar la situacion militar por que es Reservista");
+            }else if(vldCed.validarCedula(cedABuscar, cntlApl.getAplazados())){
+                String codRecAux=vista.capturarString("Ingrese el codigo de reclutamiento: ");
+                cntlApl.cambiarAplazado(cedABuscar, codRecAux);
+                vista.mostrarMensaje("Cambio realizado");
+            }else if(vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())){
+                String libMilAux=vista.capturarString("Ingrese el numero de libreta: ");
+                cntlRec.cambiarReclutado(cedABuscar, libMilAux);
+                vista.mostrarMensaje("Cambio realizado");
+            }else if(vldCed.validarCedula(cedABuscar, cntlRem.getRemisos())){
+                
+            }
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -151,46 +164,6 @@ public class Gestor implements ActionListener {
             vista.jTextFieldLibretaMil.setEnabled(true);
             vista.jTextFieldCodRec.setEnabled(false);
             vista.jTextFieldFechApla.setEnabled(false);
-        }
-        
-        if (e.getSource() == vista.jButtonRegistar) {
-            // Maneja el registro de una nueva persona según el tipo seleccionado.
-            boolean cedulaValida = !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) &&
-                                   !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) &&
-                                   !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) &&
-                                   !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados());
-
-            if (vista.jRadioButtonAplazado.isSelected()) {
-                if (cedulaValida) {
-                    cntlApl.crearAplazado(vista.jTextFieldCedula.getText(), vista.jTextFieldNombre.getText(), vista.jTextFieldApellido.getText(), vista.jTextFieldFechApla.getText());
-                    vista.mostrarMensaje("Se ha registrado correctamente");
-                } else {
-                    vista.mostrarMensaje("La cédula ya se encuentra registrada");
-                }
-            } else if (vista.jRadioButtonReclutado.isSelected()) {
-                if (cedulaValida) {
-                    cntlRec.crearReclutado(vista.jTextFieldCodRec.getText(), vista.jTextFieldCedula.getText(), vista.jTextFieldNombre.getText(), vista.jTextFieldApellido.getText());
-                    vista.mostrarMensaje("Se ha registrado correctamente");
-                } else {
-                    vista.mostrarMensaje("La cédula ya se encuentra registrada");
-                }
-            } else if (vista.jRadioButtonRemiso.isSelected()) {
-                if (cedulaValida) {
-                    cntlRem.crearRemiso(vista.jTextFieldCedula.getText(), vista.jTextFieldNombre.getText(), vista.jTextFieldApellido.getText());
-                    vista.mostrarMensaje("Se ha registrado correctamente");
-                } else {
-                    vista.mostrarMensaje("La cédula ya se encuentra registrada");
-                }
-            } else if (vista.jRadioButtonReservista.isSelected()) {
-                if (cedulaValida) {
-                    cntlRes.crearReservista(vista.jTextFieldLibretaMil.getText(), vista.jTextFieldCedula.getText(), vista.jTextFieldNombre.getText(), vista.jTextFieldApellido.getText());
-                    vista.mostrarMensaje("Se ha registrado correctamente");
-                } else {
-                    vista.mostrarMensaje("La cédula ya se encuentra registrada");
-                }
-            }
-            
-            vista.limpiarTextField();
         }
     }
 }
