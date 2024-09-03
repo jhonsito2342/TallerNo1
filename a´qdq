@@ -1,0 +1,29 @@
+[33mcommit 9c198834ba0774394106adff41e5e3a727ff56d4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jhon <jhonomeara09@gmail.com>
+Date:   Tue Sep 3 01:44:57 2024 -0500
+
+    Busqueda por cedula completo
+
+[33mcommit ba9b74a9fbf1bce30dded7389c52e9bc019a0a00[m
+Author: Jhon <jhonomeara09@gmail.com>
+Date:   Fri Aug 30 09:44:18 2024 -0500
+
+    Constructores terminados
+
+[33mcommit 75bca6505d5bb63b01e4b42ee734467a24d28c76[m
+Author: Jhon <jhonomeara09@gmail.com>
+Date:   Fri Aug 30 08:58:42 2024 -0500
+
+    Metodos buscar Aplazado
+
+[33mcommit 563b5450a0c5142ccd2fdc8ef4f09deeec27f844[m
+Author: Jhon <jhonomeara09@gmail.com>
+Date:   Fri Aug 30 08:55:05 2024 -0500
+
+    Crear reclutados metodo
+
+[33mcommit 6c7c414fdacf0d28a0dd47e812c52cee36376de9[m
+Author: Jhon <jhonomeara09@gmail.com>
+Date:   Thu Aug 29 13:49:43 2024 -0500
+
+    Modelo completo, creacion y validacion de aplazados

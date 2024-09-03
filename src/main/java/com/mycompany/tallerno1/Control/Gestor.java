@@ -59,6 +59,7 @@ public class Gestor implements ActionListener {
             if (!auxString.isEmpty()) {
                 vista.mostrarMensaje(auxString);
             }
+            vista.limpiarTextField();
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -67,6 +68,7 @@ public class Gestor implements ActionListener {
             } else {
                 vista.mostrarMensaje("La cedula ya se encuentra registrada");
             }
+            vista.limpiarTextField();
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonReclutado.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -75,6 +77,7 @@ public class Gestor implements ActionListener {
             } else {
                 vista.mostrarMensaje("La cedula ya se encuentra registrada");
             }
+            vista.limpiarTextField();
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonRemiso.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -83,6 +86,7 @@ public class Gestor implements ActionListener {
             } else {
                 vista.mostrarMensaje("La cedula ya se encuentra registrada");
             }
+            vista.limpiarTextField();
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonReservista.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -91,6 +95,7 @@ public class Gestor implements ActionListener {
             } else {
                 vista.mostrarMensaje("La cedula ya se encuentra registrada");
             }
+            vista.limpiarTextField();
         }
     }
 }

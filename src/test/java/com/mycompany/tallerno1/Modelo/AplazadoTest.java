@@ -4,6 +4,7 @@
  */
 package com.mycompany.tallerno1.Modelo;
 
+import com.mycompany.tallerno1.Modelo.Aplazado;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,16 +14,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author estudiantes
+ * @author Jhon
+ * @author Nicolas
  */
 public class AplazadoTest {
-    static Aplazado aplazado;
+    
+    private Aplazado aplazado;  // Instancia que se usará en las pruebas
+    
     public AplazadoTest() {
     }
     
     @BeforeAll
     public static void setUpClass() {
-    aplazado= new Aplazado("8 de agosto", "01239021", "Andres", "Garzon");
     }
     
     @AfterAll
@@ -31,10 +34,12 @@ public class AplazadoTest {
     
     @BeforeEach
     public void setUp() {
+        aplazado = new Aplazado("2024-08-29", "123456789", "Jhon", "Doe");  // Inicializa una instancia de Aplazado
     }
     
     @AfterEach
     public void tearDown() {
+        aplazado = null;  // Limpia la instancia de Aplazado
     }
 
     /**
@@ -43,11 +48,12 @@ public class AplazadoTest {
     @Test
     public void testGetDateA() {
         System.out.println("getDateA");
-        String expResult = "8 de agosto";
+        // Se define el resultado esperado
+        String expResult = "2024-08-29";
+        // Se obtiene el resultado actual de la instancia
         String result = aplazado.getDateA();
+        // Compara el resultado esperado con el actual
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-
     }
 
     /**
@@ -56,10 +62,12 @@ public class AplazadoTest {
     @Test
     public void testSetDateA() {
         System.out.println("setDateA");
-        String dateA = "";
-        Aplazado instance = new Aplazado(dateA, dateA, dateA, dateA);
-        instance.setDateA(dateA);
-        // TODO review the generated test code and remove the default call to fail.
+        // Nuevo valor de fecha para el aplazado
+        String dateA = "2024-09-01";
+        // Se establece la nueva fecha en la instancia
+        aplazado.setDateA(dateA);
+        // Verifica que el valor establecido sea el mismo que se estableció
+        assertEquals(dateA, aplazado.getDateA());
     }
     
 }
