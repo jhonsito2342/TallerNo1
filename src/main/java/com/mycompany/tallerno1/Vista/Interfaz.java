@@ -71,6 +71,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButtonBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButtonCambiarSituacion = new javax.swing.JButton();
+        jButtonReporteAplazados = new javax.swing.JButton();
+        jButtonReporteReclutados = new javax.swing.JButton();
+        jButtonReporteRemisos = new javax.swing.JButton();
+        jButtonReporteReservistas = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
         jRadioButtonRemiso = new javax.swing.JRadioButton();
         jButtonLimpiar = new javax.swing.JButton();
 
@@ -110,6 +115,31 @@ public class Interfaz extends javax.swing.JFrame {
 
         jButtonCambiarSituacion.setText("Cambiar situacion militar");
 
+        jButtonReporteAplazados.setText("Reporte Aplazados");
+        jButtonReporteAplazados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReporteAplazadosActionPerformed(evt);
+            }
+        });
+
+        jButtonReporteReclutados.setText("Reporte Reclutados");
+
+        jButtonReporteRemisos.setText("Reporte Remisos");
+
+        jButtonReporteReservistas.setText("Reporte Reservistas");
+        jButtonReporteReservistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReporteReservistasActionPerformed(evt);
+            }
+        });
+
+        jButtonSalir.setText("SALIR");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -117,27 +147,47 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(89, 89, 89)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
                         .addComponent(jButtonBuscar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 27, Short.MAX_VALUE)
-                .addComponent(jButtonCambiarSituacion)
-                .addGap(25, 25, 25))
+                        .addGap(26, 26, 26)
+                        .addComponent(jButtonCambiarSituacion))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonReporteReservistas)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonReporteReclutados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonReporteRemisos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonReporteAplazados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(jButtonSalir)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel7)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonBuscar)
-                .addGap(40, 40, 40)
+                .addGap(26, 26, 26)
                 .addComponent(jButtonCambiarSituacion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonReporteAplazados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonReporteReclutados)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonReporteRemisos)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonReporteReservistas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSalir)
+                .addContainerGap())
         );
 
         jRadioButtonRemiso.setText("Remiso");
@@ -250,6 +300,18 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLibretaMilActionPerformed
 
+    private void jButtonReporteAplazadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporteAplazadosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReporteAplazadosActionPerformed
+
+    private void jButtonReporteReservistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporteReservistasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonReporteReservistasActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,6 +322,11 @@ public class Interfaz extends javax.swing.JFrame {
     public javax.swing.JButton jButtonCambiarSituacion;
     public javax.swing.JButton jButtonLimpiar;
     public javax.swing.JButton jButtonRegistar;
+    public javax.swing.JButton jButtonReporteAplazados;
+    public javax.swing.JButton jButtonReporteReclutados;
+    public javax.swing.JButton jButtonReporteRemisos;
+    public javax.swing.JButton jButtonReporteReservistas;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

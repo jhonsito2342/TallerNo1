@@ -4,9 +4,17 @@
  */
 package com.mycompany.tallerno1.Control;
 
+import com.mycompany.tallerno1.Modelo.Aplazado;
+import com.mycompany.tallerno1.Modelo.Reclutado;
+import com.mycompany.tallerno1.Modelo.Remiso;
+import com.mycompany.tallerno1.Modelo.Reservista;
 import com.mycompany.tallerno1.Vista.Interfaz;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
  * La clase Gestor es el controlador principal que maneja las interacciones entre la vista y los modelos.
@@ -57,6 +65,11 @@ public class Gestor implements ActionListener {
 
         this.vista.jButtonLimpiar.addActionListener(this);
         this.vista.jButtonCambiarSituacion.addActionListener(this);
+        
+        this.vista.jButtonReporteAplazados.addActionListener(this);
+        this.vista.jButtonReporteReclutados.addActionListener(this);
+        this.vista.jButtonReporteRemisos.addActionListener(this);
+        this.vista.jButtonReporteReservistas.addActionListener(this);
 
     }
 
@@ -153,6 +166,8 @@ public class Gestor implements ActionListener {
             vista.jTextFieldFechApla.setEnabled(false);
         }
         
+        
+        
         if (e.getSource() == vista.jButtonRegistar) {
             // Maneja el registro de una nueva persona según el tipo seleccionado.
             boolean cedulaValida = !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) &&
@@ -192,6 +207,70 @@ public class Gestor implements ActionListener {
             
             vista.limpiarTextField();
         }
+        
+        if (e.getSource() == vista.jButtonReporteAplazados) {
+            mostrarReporteAplazados();
+        }
+        if (e.getSource() == vista.jButtonReporteReclutados) {
+            mostrarReporteReclutados();
+        }
+        if (e.getSource() == vista.jButtonReporteRemisos) {
+            mostrarReporteRemisos();
+        }
+        if (e.getSource() == vista.jButtonReporteReservistas) {
+            mostrarReporteReservistas();
+        }
+    }
+    
+    private void mostrarReporteEnDialogo(String titulo, String contenido) {
+    // Crear un JDialog
+    JDialog dialogo = new JDialog((Frame) null, titulo, true);
+    dialogo.setSize(400, 300);
+    dialogo.setLocationRelativeTo(null);
+
+    // Crear un JTextArea para mostrar el contenido del reporte
+    JTextArea textArea = new JTextArea();
+    textArea.setText(contenido);
+    textArea.setEditable(false);
+
+    // Agregar el JTextArea a un JScrollPane
+    JScrollPane scrollPane = new JScrollPane(textArea);
+    dialogo.add(scrollPane);
+
+    // Mostrar el JDialog
+    dialogo.setVisible(true);
+    }
+    
+    private void mostrarReporteAplazados() {
+        StringBuilder sb = new StringBuilder();
+        for (Aplazado aplazado : cntlApl.getAplazados()) {
+            sb.append(aplazado.toString()).append("\n");
+        }
+        mostrarReporteEnDialogo("Reporte de Aplazados", sb.toString());
+    }
+
+    private void mostrarReporteReclutados() {
+        StringBuilder sb = new StringBuilder();
+        for (Reclutado reclutado : cntlRec.getReclutados()) {
+            sb.append(reclutado.toString()).append("\n");
+        }
+        mostrarReporteEnDialogo("Reporte de Reclutados", sb.toString());
+    }
+
+    private void mostrarReporteRemisos() {
+        StringBuilder sb = new StringBuilder();
+        for (Remiso remiso : cntlRem.getRemisos()) {
+            sb.append(remiso.toString()).append("\n");
+        }
+        mostrarReporteEnDialogo("Reporte de Remisos", sb.toString());
+    }
+
+    private void mostrarReporteReservistas() {
+        StringBuilder sb = new StringBuilder();
+        for (Reservista reservista : cntlRes.getReservistas()) {
+            sb.append(reservista.toString()).append("\n");
+        }
+        mostrarReporteEnDialogo("Reporte de Reservistas", sb.toString());
     }
 }
 
