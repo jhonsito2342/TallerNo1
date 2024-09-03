@@ -39,35 +39,38 @@ public class Gestor implements ActionListener {
         this.vista.jButtonRegistar.addActionListener(this);
         this.vista.jButtonBuscar.addActionListener(this);
         this.vista.jButtonLimpiar.addActionListener(this);
+        this.vista.jButtonCambiarSituacion.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.jButtonBuscar) {
-            
             String cedABuscar = vista.capturarString("Ingrese la cedula a buscar: ");
-            if (!vldCed.validarCedula(cedABuscar, cntlApl.getAplazados()) && !vldCed.validarCedula(cedABuscar, cntlRes.getReservistas()) && !vldCed.validarCedula(cedABuscar, cntlRem.getRemisos()) && !vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())){
-            vista.mostrarMensaje("La cedula no se encuentra registrada");
-            }else{
+            if (!vldCed.validarCedula(cedABuscar, cntlApl.getAplazados()) && !vldCed.validarCedula(cedABuscar, cntlRes.getReservistas()) && !vldCed.validarCedula(cedABuscar, cntlRem.getRemisos()) && !vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())) {
+                vista.mostrarMensaje("La cedula no se encuentra registrada");
+            } else {
                 String auxString = cntlApl.buscarAplazado(cedABuscar);
-            if (!auxString.isEmpty()) {
-                vista.mostrarMensaje(auxString);
+                if (!auxString.isEmpty()) {
+                    vista.mostrarMensaje(auxString);
+                }
+                auxString = cntlRec.buscarReclutado(cedABuscar);
+                if (!auxString.isEmpty()) {
+                    vista.mostrarMensaje(auxString);
+                }
+                auxString = cntlRem.buscarRemiso(cedABuscar);
+                if (!auxString.isEmpty()) {
+                    vista.mostrarMensaje(auxString);
+                }
+                auxString = cntlRes.buscarReservista(cedABuscar);
+                if (!auxString.isEmpty()) {
+                    vista.mostrarMensaje(auxString);
+                }
             }
-            auxString = cntlRec.buscarReclutado(cedABuscar);
-            if (!auxString.isEmpty()) {
-                vista.mostrarMensaje(auxString);
-            }
-            auxString = cntlRem.buscarRemiso(cedABuscar);
-            if (!auxString.isEmpty()) {
-                vista.mostrarMensaje(auxString);
-            }
-            auxString = cntlRes.buscarReservista(cedABuscar);
-            if (!auxString.isEmpty()) {
-                vista.mostrarMensaje(auxString);
-            }
-            } 
-            
+
             vista.limpiarTextField();
+        }
+        if(e.getSource()==vista.jButtonCambiarSituacion){
+            
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {
             if (!vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlApl.getAplazados()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRes.getReservistas()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRem.getRemisos()) && !vldCed.validarCedula(vista.jTextFieldCedula.getText(), cntlRec.getReclutados())) {
@@ -105,22 +108,22 @@ public class Gestor implements ActionListener {
             }
             vista.limpiarTextField();
         }
-        if(e.getSource()==vista.jButtonLimpiar){
+        if (e.getSource() == vista.jButtonLimpiar) {
             vista.limpiarTextField();
         }
-        if(e.getSource()==vista.jRadioButtonAplazado){
+        if (e.getSource() == vista.jRadioButtonAplazado) {
             vista.jTextFieldLibretaMil.setEnabled(false);
             vista.jTextFieldCodRec.setEnabled(false);
             vista.jTextFieldFechApla.setEnabled(true);
-        }else if(e.getSource()==vista.jRadioButtonReclutado){
+        } else if (e.getSource() == vista.jRadioButtonReclutado) {
             vista.jTextFieldFechApla.setEnabled(false);
             vista.jTextFieldCodRec.setEnabled(true);
             vista.jTextFieldLibretaMil.setEnabled(false);
-        }else if(e.getSource()==vista.jRadioButtonRemiso){
+        } else if (e.getSource() == vista.jRadioButtonRemiso) {
             vista.jTextFieldFechApla.setEnabled(false);
             vista.jTextFieldLibretaMil.setEnabled(false);
             vista.jTextFieldCodRec.setEnabled(false);
-        }else if(e.getSource()==vista.jRadioButtonReservista){
+        } else if (e.getSource() == vista.jRadioButtonReservista) {
             vista.jTextFieldLibretaMil.setEnabled(true);
             vista.jTextFieldCodRec.setEnabled(false);
             vista.jTextFieldFechApla.setEnabled(false);

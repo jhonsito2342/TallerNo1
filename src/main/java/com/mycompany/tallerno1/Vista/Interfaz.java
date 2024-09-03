@@ -70,7 +70,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButtonBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonCambiarSituacion = new javax.swing.JButton();
         jRadioButtonRemiso = new javax.swing.JRadioButton();
         jButtonLimpiar = new javax.swing.JButton();
 
@@ -108,7 +108,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel7.setText("Menu");
 
-        jButton1.setText("Cambiar situacion militar");
+        jButtonCambiarSituacion.setText("Cambiar situacion militar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -125,7 +125,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 27, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonCambiarSituacion)
                 .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,7 +136,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jButtonBuscar)
                 .addGap(40, 40, 40)
-                .addComponent(jButton1)
+                .addComponent(jButtonCambiarSituacion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -256,8 +256,8 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup buttonGroupEstados;
-    private javax.swing.JButton jButton1;
     public javax.swing.JButton jButtonBuscar;
+    public javax.swing.JButton jButtonCambiarSituacion;
     public javax.swing.JButton jButtonLimpiar;
     public javax.swing.JButton jButtonRegistar;
     private javax.swing.JLabel jLabel1;
