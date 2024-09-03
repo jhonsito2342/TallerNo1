@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tallerno1.Modelo;
+package edu.avanzada.taller1.modelo;
 
 /**
  * La clase Reclutado representa a una persona que ha sido reclutada para el servicio militar.

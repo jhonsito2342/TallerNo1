@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tallerno1.Control;
+package edu.avanzada.taller1.controlador;
 
-import com.mycompany.tallerno1.Modelo.Aplazado;
-import com.mycompany.tallerno1.Modelo.Reclutado;
-import com.mycompany.tallerno1.Modelo.Remiso;
-import com.mycompany.tallerno1.Modelo.Reservista;
-import com.mycompany.tallerno1.Vista.Interfaz;
+import edu.avanzada.taller1.modelo.Aplazado;
+import edu.avanzada.taller1.modelo.Reclutado;
+import edu.avanzada.taller1.modelo.Remiso;
+import edu.avanzada.taller1.modelo.Reservista;
+import edu.avanzada.taller1.vista.Interfaz;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

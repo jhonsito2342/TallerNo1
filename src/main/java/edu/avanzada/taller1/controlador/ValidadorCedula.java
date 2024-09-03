@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.tallerno1.Control;
-import com.mycompany.tallerno1.Modelo.Persona;
+package edu.avanzada.taller1.controlador;
+import edu.avanzada.taller1.modelo.Persona;
 import java.util.ArrayList;
 /**
  * La clase ValidadorCedula proporciona un método para validar si una cédula ya existe

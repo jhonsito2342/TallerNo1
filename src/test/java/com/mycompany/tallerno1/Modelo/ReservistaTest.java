@@ -4,7 +4,7 @@
  */
 package com.mycompany.tallerno1.Modelo;
 
-import com.mycompany.tallerno1.Modelo.Reservista;
+import edu.avanzada.taller1.modelo.Reservista;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;

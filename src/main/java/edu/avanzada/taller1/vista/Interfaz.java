@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.tallerno1.Vista;
+package edu.avanzada.taller1.vista;
 
 import java.awt.Frame;
 import javax.swing.JDialog;

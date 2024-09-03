@@ -4,7 +4,7 @@
  */
 package com.mycompany.tallerno1.Modelo;
 
-import com.mycompany.tallerno1.Modelo.Persona;
+import edu.avanzada.taller1.modelo.Persona;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;

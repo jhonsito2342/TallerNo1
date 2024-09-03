@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package com.mycompany.tallerno1.Control;
+package edu.avanzada.taller1.controlador;
 
 /**
  * La clase Launcher es el punto de entrada principal de la aplicación.
