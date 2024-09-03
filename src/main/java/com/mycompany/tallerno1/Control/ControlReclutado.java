@@ -54,6 +54,15 @@ public class ControlReclutado {
         }
         return sb.toString();
     }
+    public String mostrarReporteReclutados() {
+        String resultado;
+        StringBuilder sb = new StringBuilder();
+        for (Reclutado reclutado : reclutados) {
+            sb.append(reclutado.toString()).append("\n");
+        }
+        resultado=sb.toString();
+        return resultado ;
+    }
 
     /**
      * Crea un nuevo reclutado y lo agrega a la lista.

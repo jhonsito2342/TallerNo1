@@ -4,14 +4,23 @@
  */
 package com.mycompany.tallerno1.Control;
 
+import com.mycompany.tallerno1.Modelo.Aplazado;
+import com.mycompany.tallerno1.Modelo.Reclutado;
+import com.mycompany.tallerno1.Modelo.Remiso;
+import com.mycompany.tallerno1.Modelo.Reservista;
 import com.mycompany.tallerno1.Vista.Interfaz;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JDialog;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /**
- * La clase Gestor es el controlador principal que maneja las interacciones entre la vista y los modelos.
- * Implementa la interfaz ActionListener para responder a los eventos de acción generados por la interfaz gráfica.
- * 
+ * La clase Gestor es el controlador principal que maneja las interacciones
+ * entre la vista y los modelos. Implementa la interfaz ActionListener para
+ * responder a los eventos de acción generados por la interfaz gráfica.
+ *
  * @author Jhon
  * @author Nicolas
  */
@@ -22,17 +31,17 @@ public class Gestor implements ActionListener {
     private ControlReclutado cntlRec;
     private ControlRemiso cntlRem;
     private ControlReservista cntlRes;
-    
+
     // Validador para verificar cédulas.
     private ValidadorCedula vldCed;
-    
+
     // Interfaz gráfica de usuario.
     private Interfaz vista;
 
     /**
-     * Constructor de la clase Gestor.
-     * Inicializa los controladores, el validador y la interfaz gráfica.
-     * Configura la interfaz y agrega los escuchadores de eventos a los componentes.
+     * Constructor de la clase Gestor. Inicializa los controladores, el
+     * validador y la interfaz gráfica. Configura la interfaz y agrega los
+     * escuchadores de eventos a los componentes.
      */
     public Gestor() {
         vldCed = new ValidadorCedula();
@@ -41,12 +50,12 @@ public class Gestor implements ActionListener {
         cntlRem = new ControlRemiso();
         cntlRes = new ControlReservista();
         vista = new Interfaz();
-        
+
         // Configura la interfaz gráfica.
         this.vista.setTitle("Registro y consulta de situación militar");
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
-        
+
         // Agrega los escuchadores de eventos a los botones y radio buttons.
         this.vista.jRadioButtonReclutado.addActionListener(this);
         this.vista.jRadioButtonReservista.addActionListener(this);
@@ -58,17 +67,23 @@ public class Gestor implements ActionListener {
         this.vista.jButtonLimpiar.addActionListener(this);
         this.vista.jButtonCambiarSituacion.addActionListener(this);
 
+        this.vista.jButtonReporteAplazados.addActionListener(this);
+        this.vista.jButtonReporteReclutados.addActionListener(this);
+        this.vista.jButtonReporteRemisos.addActionListener(this);
+        this.vista.jButtonReporteReservistas.addActionListener(this);
+
     }
 
     /**
-     * Maneja los eventos de acción generados por los componentes de la interfaz gráfica.
-     * 
+     * Maneja los eventos de acción generados por los componentes de la interfaz
+     * gráfica.
+     *
      * @param e El evento de acción que se ha producido.
      */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.jButtonBuscar) {
-            
+
             String cedABuscar = vista.capturarString("Ingrese la cedula a buscar: ");
             if (!vldCed.validarCedula(cedABuscar, cntlApl.getAplazados()) && !vldCed.validarCedula(cedABuscar, cntlRes.getReservistas()) && !vldCed.validarCedula(cedABuscar, cntlRem.getRemisos()) && !vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())) {
                 vista.mostrarMensaje("La cedula no se encuentra registrada");
@@ -93,20 +108,20 @@ public class Gestor implements ActionListener {
 
             vista.limpiarTextField();
         }
-        if(e.getSource()==vista.jButtonCambiarSituacion){
+        if (e.getSource() == vista.jButtonCambiarSituacion) {
             String cedABuscar = vista.capturarString("Ingrese la cedula de la persona a cambiar situacion: ");
-            if(vldCed.validarCedula(cedABuscar, cntlRes.getReservistas())){
+            if (vldCed.validarCedula(cedABuscar, cntlRes.getReservistas())) {
                 vista.mostrarMensaje("No se puede cambiar la situacion militar por que es Reservista");
-            }else if(vldCed.validarCedula(cedABuscar, cntlApl.getAplazados())){
-                String codRecAux=vista.capturarString("Ingrese el codigo de reclutamiento: ");
+            } else if (vldCed.validarCedula(cedABuscar, cntlApl.getAplazados())) {
+                String codRecAux = vista.capturarString("Ingrese el codigo de reclutamiento: ");
                 cntlApl.cambiarAplazado(cedABuscar, codRecAux);
                 vista.mostrarMensaje("Cambio realizado");
-            }else if(vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())){
-                String libMilAux=vista.capturarString("Ingrese el numero de libreta: ");
+            } else if (vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())) {
+                String libMilAux = vista.capturarString("Ingrese el numero de libreta: ");
                 cntlRec.cambiarReclutado(cedABuscar, libMilAux);
                 vista.mostrarMensaje("Cambio realizado");
-            }else if(vldCed.validarCedula(cedABuscar, cntlRem.getRemisos())){
-                
+            } else if (vldCed.validarCedula(cedABuscar, cntlRem.getRemisos())) {
+
             }
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {
@@ -165,6 +180,19 @@ public class Gestor implements ActionListener {
             vista.jTextFieldCodRec.setEnabled(false);
             vista.jTextFieldFechApla.setEnabled(false);
         }
-    }
-}
 
+        if (e.getSource() == vista.jButtonReporteAplazados) {
+            vista.mostrarReporteEnDialogo("Reporte de Aplazados", cntlApl.mostrarReporteAplazados());
+        }
+        if (e.getSource() == vista.jButtonReporteReclutados) {
+            vista.mostrarReporteEnDialogo("Reporte de Reclutados", cntlRec.mostrarReporteReclutados());
+        }
+        if (e.getSource() == vista.jButtonReporteRemisos) {
+            vista.mostrarReporteEnDialogo("Reporte de Remisos", cntlRem.mostrarReporteRemisos());
+        }
+        if (e.getSource() == vista.jButtonReporteReservistas) {
+            vista.mostrarReporteEnDialogo("Reporte de Reservistas", cntlRes.mostrarReporteReservistas());
+        }
+    }
+
+}

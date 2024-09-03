@@ -52,6 +52,15 @@ public class ControlRemiso {
         }
         return personaAux;
     }
+    public String mostrarReporteRemisos() {
+        String resultado;
+        StringBuilder sb = new StringBuilder();
+        for (Remiso remiso : remisos) {
+            sb.append(remiso.toString()).append("\n");
+        }
+        resultado= sb.toString();
+        return resultado;
+    }
     /**
      * Crea un nuevo remiso y lo agrega a la lista.
      * 

@@ -25,6 +25,14 @@ public class ControlReservista {
     public ControlReservista() {
         reservistas = new ArrayList<Reservista>();
     }
+    public String mostrarReporteReservistas() {
+        String resultado;
+        StringBuilder sb = new StringBuilder();
+        for (Reservista reservista : reservistas) {
+            sb.append(reservista.toString()).append("\n");
+        }resultado=sb.toString();
+        return resultado;
+    }
 
     /**
      * Busca un reservista en la lista por su cédula.

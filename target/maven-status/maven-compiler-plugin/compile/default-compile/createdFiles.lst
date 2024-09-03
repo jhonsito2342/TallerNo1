@@ -2,7 +2,9 @@ com\mycompany\tallerno1\Modelo\Remiso.class
 com\mycompany\tallerno1\Control\ControlAplazado.class
 com\mycompany\tallerno1\Modelo\Persona.class
 com\mycompany\tallerno1\Control\ControlRemiso.class
+com\mycompany\tallerno1\Vista\Interfaz$3.class
 com\mycompany\tallerno1\Control\Launcher.class
+com\mycompany\tallerno1\Vista\Interfaz$4.class
 com\mycompany\tallerno1\Vista\Interfaz$1.class
 com\mycompany\tallerno1\Control\Gestor.class
 com\mycompany\tallerno1\Vista\Interfaz.class
@@ -10,5 +12,6 @@ com\mycompany\tallerno1\Modelo\Reservista.class
 com\mycompany\tallerno1\Control\ValidadorCedula.class
 com\mycompany\tallerno1\Modelo\Reclutado.class
 com\mycompany\tallerno1\Control\ControlReservista.class
+com\mycompany\tallerno1\Vista\Interfaz$2.class
 com\mycompany\tallerno1\Control\ControlReclutado.class
 com\mycompany\tallerno1\Modelo\Aplazado.class

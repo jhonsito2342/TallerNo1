@@ -54,6 +54,14 @@ public class ControlAplazado {
         }
         return aplazadoAux;
     }
+    public String mostrarReporteAplazados() {
+        String reporte;
+        StringBuilder sb = new StringBuilder();
+        for (Aplazado aplazado : aplazados) {
+            sb.append(aplazado.toString()).append("\n");
+        }
+        return reporte= sb.toString();
+    }
 
     /**
      * Crea un nuevo aplazado y lo agrega a la lista.
