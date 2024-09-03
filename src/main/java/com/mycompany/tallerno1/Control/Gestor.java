@@ -28,6 +28,7 @@ public class Gestor implements ActionListener {
         cntlRem = new ControlRemiso();
         cntlRes = new ControlReservista();
         vista = new Interfaz();
+        vista.mostrarMensaje("Primero identifique el tipo de persona a registrar");
         this.vista.setTitle("Registro y consulta de situacion militar");
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
@@ -37,13 +38,18 @@ public class Gestor implements ActionListener {
         this.vista.jRadioButtonAplazado.addActionListener(this);
         this.vista.jButtonRegistar.addActionListener(this);
         this.vista.jButtonBuscar.addActionListener(this);
+        this.vista.jButtonLimpiar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.jButtonBuscar) {
+            
             String cedABuscar = vista.capturarString("Ingrese la cedula a buscar: ");
-            String auxString = cntlApl.buscarAplazado(cedABuscar);
+            if (!vldCed.validarCedula(cedABuscar, cntlApl.getAplazados()) && !vldCed.validarCedula(cedABuscar, cntlRes.getReservistas()) && !vldCed.validarCedula(cedABuscar, cntlRem.getRemisos()) && !vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())){
+            vista.mostrarMensaje("La cedula no se encuentra registrada");
+            }else{
+                String auxString = cntlApl.buscarAplazado(cedABuscar);
             if (!auxString.isEmpty()) {
                 vista.mostrarMensaje(auxString);
             }
@@ -59,6 +65,8 @@ public class Gestor implements ActionListener {
             if (!auxString.isEmpty()) {
                 vista.mostrarMensaje(auxString);
             }
+            } 
+            
             vista.limpiarTextField();
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {
@@ -96,6 +104,26 @@ public class Gestor implements ActionListener {
                 vista.mostrarMensaje("La cedula ya se encuentra registrada");
             }
             vista.limpiarTextField();
+        }
+        if(e.getSource()==vista.jButtonLimpiar){
+            vista.limpiarTextField();
+        }
+        if(e.getSource()==vista.jRadioButtonAplazado){
+            vista.jTextFieldLibretaMil.setEnabled(false);
+            vista.jTextFieldCodRec.setEnabled(false);
+            vista.jTextFieldFechApla.setEnabled(true);
+        }else if(e.getSource()==vista.jRadioButtonReclutado){
+            vista.jTextFieldFechApla.setEnabled(false);
+            vista.jTextFieldCodRec.setEnabled(true);
+            vista.jTextFieldLibretaMil.setEnabled(false);
+        }else if(e.getSource()==vista.jRadioButtonRemiso){
+            vista.jTextFieldFechApla.setEnabled(false);
+            vista.jTextFieldLibretaMil.setEnabled(false);
+            vista.jTextFieldCodRec.setEnabled(false);
+        }else if(e.getSource()==vista.jRadioButtonReservista){
+            vista.jTextFieldLibretaMil.setEnabled(true);
+            vista.jTextFieldCodRec.setEnabled(false);
+            vista.jTextFieldFechApla.setEnabled(false);
         }
     }
 }
