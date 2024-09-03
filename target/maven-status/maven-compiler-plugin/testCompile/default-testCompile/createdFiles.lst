@@ -1,1 +1,13 @@
 com\mycompany\tallerno1\Modelo\AplazadoTest.class
+com\mycompany\tallerno1\Modelo\PersonaTest.class
+edu\avanzada\taller1\controlador\LauncherTest.class
+com\mycompany\tallerno1\Modelo\ReservistaTest.class
+edu\avanzada\taller1\controlador\ControlReservistaTest.class
+edu\avanzada\taller1\vista\InterfazTest.class
+edu\avanzada\taller1\controlador\GestorTest.class
+com\mycompany\tallerno1\Modelo\ReclutadoTest.class
+edu\avanzada\taller1\controlador\ControlReclutadoTest.class
+com\mycompany\tallerno1\Modelo\RemisoTest.class
+edu\avanzada\taller1\controlador\ControlAplazadoTest.class
+edu\avanzada\taller1\controlador\ValidadorCedulaTest.class
+edu\avanzada\taller1\controlador\ControlRemisoTest.class
