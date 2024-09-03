@@ -34,12 +34,11 @@ public class ControlReclutado {
      * @param cedAux La cédula del reclutado a buscar.
      * @return Una cadena con la información del reclutado encontrado. Si no se encuentra, devuelve una cadena vacía.
      */
-    public Reclutado cambiarReclutado(String cedAux, String libMilAux){
+    public Reclutado cambiarReclutado(String cedAux){
         Reclutado reclutadoAux=null;
         for(Reclutado reclutado : reclutados){
             if(reclutado.getCed().equals(cedAux)){
                 reclutadoAux= reclutado;
-                reclutadoAux.setCodR(libMilAux);
             }
         }
         return reclutadoAux;
@@ -63,7 +62,13 @@ public class ControlReclutado {
         resultado=sb.toString();
         return resultado ;
     }
-
+    public void eliminarReclutado(String cedAux){
+        for(Reclutado reclutado : reclutados){
+            if(reclutado.getCed().equals(cedAux)){
+                reclutados.remove(reclutado);
+            }
+        }
+    }
     /**
      * Crea un nuevo reclutado y lo agrega a la lista.
      * 

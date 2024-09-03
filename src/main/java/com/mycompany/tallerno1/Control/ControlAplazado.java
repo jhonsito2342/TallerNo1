@@ -44,15 +44,21 @@ public class ControlAplazado {
         }
         return sb.toString();
     }
-    public Aplazado cambiarAplazado(String cedAux, String codRecAux){
+    public Aplazado cambiarAplazado(String cedAux){
         Aplazado aplazadoAux=null;
         for(Aplazado aplazado : aplazados){
             if(aplazado.getCed().equals(cedAux)){
                 aplazadoAux= aplazado;
-                aplazadoAux.setDateA(codRecAux);
             }
         }
         return aplazadoAux;
+    }
+    public void eliminarAplazado(String cedAux){
+        for(Aplazado aplazado : aplazados){
+            if(aplazado.getCed().equals(cedAux)){
+                aplazados.remove(aplazado);
+            }
+        }
     }
     public String mostrarReporteAplazados() {
         String reporte;

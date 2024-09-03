@@ -114,14 +114,25 @@ public class Gestor implements ActionListener {
                 vista.mostrarMensaje("No se puede cambiar la situacion militar por que es Reservista");
             } else if (vldCed.validarCedula(cedABuscar, cntlApl.getAplazados())) {
                 String codRecAux = vista.capturarString("Ingrese el codigo de reclutamiento: ");
-                cntlApl.cambiarAplazado(cedABuscar, codRecAux);
+                cntlRec.crearReclutado(codRecAux, cntlApl.cambiarAplazado(cedABuscar).getCed(), cntlApl.cambiarAplazado(cedABuscar).getNom(), cntlApl.cambiarAplazado(cedABuscar).getApe());
+                cntlApl.eliminarAplazado(cedABuscar);
                 vista.mostrarMensaje("Cambio realizado");
             } else if (vldCed.validarCedula(cedABuscar, cntlRec.getReclutados())) {
                 String libMilAux = vista.capturarString("Ingrese el numero de libreta: ");
-                cntlRec.cambiarReclutado(cedABuscar, libMilAux);
+                cntlRes.crearReservista(libMilAux, cntlRec.cambiarReclutado(cedABuscar).getCed(), cntlRec.cambiarReclutado(cedABuscar).getNom(), cntlRec.cambiarReclutado(cedABuscar).getApe());
+                cntlRec.eliminarReclutado(cedABuscar);
                 vista.mostrarMensaje("Cambio realizado");
             } else if (vldCed.validarCedula(cedABuscar, cntlRem.getRemisos())) {
-
+                int opc = vista.opcionMensaje("Aplazado", "Reclutado");
+                if (opc == 0) {
+                    String fechAplAux = vista.capturarString("Ingrese su fecha de aplazado: ");
+                    cntlApl.crearAplazado(cntlRem.cambiarRemiso(cedABuscar).getCed(), cntlRem.cambiarRemiso(cedABuscar).getNom(), cntlRem.cambiarRemiso(cedABuscar).getApe(), fechAplAux);
+                    cntlRem.eliminarRemiso(cedABuscar);
+                } else if (opc == 1) {
+                    String codRecAux = vista.capturarString("Ingrese el codigo de reclutamiento: ");
+                    cntlRec.crearReclutado(codRecAux, cntlRem.cambiarRemiso(cedABuscar).getCed(), cntlRem.cambiarRemiso(cedABuscar).getNom(), cntlRem.cambiarRemiso(cedABuscar).getApe());
+                    cntlRem.eliminarRemiso(cedABuscar);
+                }
             }
         }
         if (e.getSource() == vista.jButtonRegistar && vista.jRadioButtonAplazado.isSelected()) {

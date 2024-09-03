@@ -33,7 +33,22 @@ public class ControlReservista {
         }resultado=sb.toString();
         return resultado;
     }
-
+    public Reservista cambiarAplazado(String cedAux){
+        Reservista reservistaAux=null;
+        for(Reservista reservista : reservistas){
+            if(reservista.getCed().equals(cedAux)){
+                reservistaAux= reservista;
+            }
+        }
+        return reservistaAux;
+    }
+    public void eliminarReservista(String cedAux){
+        for(Reservista reservista : reservistas){
+            if(reservista.getCed().equals(cedAux)){
+                reservistas.remove(reservista);
+            }
+        }
+    }
     /**
      * Busca un reservista en la lista por su cédula.
      * 
