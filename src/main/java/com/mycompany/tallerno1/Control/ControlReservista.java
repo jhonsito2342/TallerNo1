@@ -5,7 +5,6 @@
 package com.mycompany.tallerno1.Control;
 
 import com.mycompany.tallerno1.Modelo.Reservista;
-import com.mycompany.tallerno1.Modelo.Persona;
 import java.util.ArrayList;
 
 /**
@@ -18,21 +17,22 @@ public class ControlReservista {
     public ControlReservista() {
     reservistas=new ArrayList<Reservista>();
     }
-    public Reservista buscarAplazado(String cedAux) {
+    public String buscarReservista(String cedAux) {
+        StringBuilder sb = new StringBuilder();
         for (Reservista reservista : reservistas) {
             if (reservista.getCed().equals(cedAux)) {
-                return reservista;
+                sb.append(reservista.toString()).append("\n");
             }
         }
-        return null;
+        return sb.toString();
     }
 
-    public void crearAplazado(String libM, String ced, String nom, String ape) {
-        Reservista reserAux=new Reservista(nom, ced, nom, ape);
+    public void crearReservista(String libM, String ced, String nom, String ape) {
+        Reservista reserAux=new Reservista(libM, ced, nom, ape);
         reservistas.add(reserAux);
     }
     
-    public ArrayList<Reservista> getAplazados(){
+    public ArrayList<Reservista> getReservistas(){
         return this.reservistas;
     }
 

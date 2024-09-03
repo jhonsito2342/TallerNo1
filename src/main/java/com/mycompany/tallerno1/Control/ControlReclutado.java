@@ -20,13 +20,14 @@ public class ControlReclutado {
         reclutados = new ArrayList<Reclutado>();
     }
 
-    public Reclutado buscarAplazado(String cedAux) {
+    public String buscarReclutado(String cedAux) {
+        StringBuilder sb = new StringBuilder();
         for (Reclutado reclutado : reclutados) {
             if (reclutado.getCed().equals(cedAux)) {
-                return reclutado;
+                sb.append(reclutado.toString()).append("\n");
             }
         }
-        return null;
+        return sb.toString();
     }
 
     public void crearReclutado(String codR, String ced, String nom, String ape) {

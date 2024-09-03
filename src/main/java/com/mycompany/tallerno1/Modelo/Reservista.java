@@ -24,5 +24,8 @@ public class Reservista extends Persona{
     public void setLibM(String libM) {
         this.libM = libM;
     }
-    
+    @Override
+    public String toString() {
+        return "Nombre: " + super.getNom() + ", Apellido: " + super.getApe() + ", Cédula: " + super.getCed() + "Libreta militar: " + libM;
+    }
 }

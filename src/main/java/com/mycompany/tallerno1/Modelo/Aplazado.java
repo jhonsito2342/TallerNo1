@@ -24,6 +24,9 @@ public class Aplazado extends Persona{
         super(ced, nom, ape);
         this.dateA = dateA;
     }
-    
+     @Override
+    public String toString() {
+        return "Nombre: " + super.getNom() + ", Apellido: " + super.getApe() + ", Cédula: " + super.getCed() + ", Fecha aplzado: "+ dateA;
+    }
     
 }

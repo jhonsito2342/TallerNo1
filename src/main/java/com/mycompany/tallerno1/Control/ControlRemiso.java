@@ -20,21 +20,22 @@ public class ControlRemiso {
         remisos = new ArrayList<Remiso>();
     }
     
-    public Remiso buscarAplazado(String cedAux) {
+    public String buscarRemiso(String cedAux) {
+        StringBuilder sb = new StringBuilder();
         for (Remiso remiso : remisos) {
             if (remiso.getCed().equals(cedAux)) {
-                return remiso;
+                sb.append(remiso.toString()).append("\n");
             }
         }
-        return null;
+        return sb.toString();
     }
 
-    public void crearAplazado(String ced, String nom, String ape) {
+    public void crearRemiso(String ced, String nom, String ape) {
         Remiso remAux=new Remiso(ced, nom, ape);
         remisos.add(remAux);
     }
     
-    public ArrayList<Remiso> getAplazados(){
+    public ArrayList<Remiso> getRemisos(){
         return this.remisos;
     }
 }

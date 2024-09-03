@@ -20,21 +20,22 @@ public class ControlAplazado {
         aplazados = new ArrayList<Aplazado>();
     }
 
-    public Aplazado buscarAplazado(String cedAux) {
+    public String buscarAplazado(String cedAux) {
+        StringBuilder sb = new StringBuilder();
         for (Aplazado aplazado : aplazados) {
             if (aplazado.getCed().equals(cedAux)) {
-                return aplazado;
+                sb.append(aplazado.toString()).append("\n");
             }
         }
-        return null;
+        return sb.toString();
     }
 
     public void crearAplazado(String ced, String nom, String ape, String dateA) {
-        Aplazado aplAux=new Aplazado(dateA, ced, nom, ape);
+        Aplazado aplAux = new Aplazado(dateA, ced, nom, ape);
         aplazados.add(aplAux);
     }
     
-    public ArrayList<Aplazado> getAplazados(){
+    public ArrayList<Aplazado> getAplazados() {
         return this.aplazados;
     }
 }

@@ -24,5 +24,10 @@ public class Reclutado extends Persona {
         super(ced, nom, ape);
         this.codR = codR;
     }
-
+    
+     @Override
+    public String toString() {
+        return "Nombre: " + super.getNom() + ", Apellido: " + super.getApe() + ", Cédula: " + super.getCed() + ", Codigo de Reclutado: "+ codR;
+    }
+    
 }

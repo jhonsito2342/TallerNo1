@@ -13,5 +13,8 @@ public class Remiso extends Persona{
     public Remiso(String ced, String nom, String ape) {
         super(ced, nom, ape);
     }
-    
+    @Override
+    public String toString() {
+        return "Nombre: " + super.getNom() + ", Apellido: " + super.getApe() + ", Cédula: " + super.getCed();
+    }
 }
